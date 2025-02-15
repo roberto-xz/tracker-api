@@ -8,6 +8,6 @@ package com.rdtech.tracker_api.entity;
  *
  * @author roberto-xz
  */
-public class Package {
+public class PackageIntity {
     
 }
