@@ -21,7 +21,7 @@ public class HistoricOfContainerEntity {
    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Long Id;
+    private Long historicOfContainerId;
     
     @Column(nullable = false)
     private Long containerId;
@@ -49,7 +49,14 @@ public class HistoricOfContainerEntity {
 
     
     
+    public void setHistoricOfContainerId(Long id) {
+        historicOfContainerId = id;
+    }
     
+    public Long getHistoricOfContainerId() {
+        return historicOfContainerId;
+    }
+
     public Long getContainerId() {
         return containerId;
     }
