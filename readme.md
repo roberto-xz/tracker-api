@@ -38,15 +38,84 @@ O projeto utiliza as seguintes tecnologias e bibliotecas:
 - ✅ **Spring Boot DevTools** – Para facilitar o desenvolvimento e recarregamento automático  
 - ✅ **Swagger (SpringDoc OpenAPI)** – Para documentação automática da API  
 
-## Tarefas  
 
-| Código  | Descrição | Autor | Status |
-|---------|--------------------------------------|-------------|-----------|
-| TSK_01  | Criação do projeto no GitHub        | roberto-xz  | Concluída |
-| TSK_02  | Configuração do Spring Boot         | maria-dev   | Em andamento |
-| TSK_03  | Modelagem do banco de dados         | joao-code   | Pendente |
-| TSK_04  | Implementação do CRUD de Pacotes    | roberto-xz  | Em andamento |
-| TSK_05  | Documentação da API com Swagger     | maria-dev   | Pendente |
+---
+
+# Estrutura do Projeto
+
+Este projeto segue uma organização modular baseada na separação de responsabilidades. A estrutura de pacotes foi projetada para manter um código limpo, escalável e de fácil manutenção.
+
+## Estrutura de Pacotes
+
+```plaintext
+src/
+├── controller/
+│   ├── package/
+│   │   ├── CreatePackage.java
+│   │   ├── UpdatePackage.java
+│   │   ├── DeletePackage.java
+│   │   └── GetPackage.java
+│   ├── container/
+│   ├── transport/
+│   └── dto/
+│       ├── package/
+│       │   ├── RequestPackageDto.java
+│       │   └── ResponsePackageDto.java
+│       ├── container/
+│       └── transport/
+├── service/
+│   ├── package/
+│   │   ├── PackageService.java
+│   │   ├── PackageValidationService.java
+│   │   └── OtherPackageService.java
+│   ├── container/
+│   └── transport/
+├── event/
+│   ├── package/
+│   │   ├── CreatedPackageEvent.java
+│   │   ├── UpdatedPackageEvent.java
+│   │   └── DeletedPackageEvent.java
+│   ├── container/
+│   └── transport/
+├── observer/
+│   ├── package/
+│   │   ├── PackageObserver.java
+│   │   ├── PackageStatusObserver.java
+│   │   └── PackageAuditObserver.java
+│   ├── container/
+│   └── transport/
+├── repository/
+│   ├── package/
+│   │   ├── PackageRepository.java
+│   │   ├── CustomPackageRepository.java
+│   │   └── PackageQueryRepository.java
+│   ├── container/
+│   └── transport/
+└── util/
+    ├── DateUtil.java
+    ├── StringUtil.java
+    └── ValidationUtil.java
+```
+
+## Descrição dos Pacotes
+
+- **controller/** → Contém as classes responsáveis por lidar com as requisições e chamar os serviços adequados.
+  - **dto/** → Pacotes para cada entidade contendo classes `RequestDto` e `ResponseDto`.
+
+- **service/** → Contém a lógica de negócios e serviços relacionados às entidades.
+
+- **event/** → Define eventos do sistema, como criação, atualização e exclusão de entidades.
+
+- **observer/** → Implementa o padrão Observer para responder a eventos do sistema.
+
+- **repository/** → Contém os repositórios responsáveis pela comunicação com o banco de dados.
+
+- **util/** → Contém classes auxiliares e utilitárias reutilizáveis.
+
+Essa estrutura modular facilita a escalabilidade e a manutenção do código.
+
+---
+
 
 ## Como Contribuir  
 
@@ -55,6 +124,3 @@ O projeto utiliza as seguintes tecnologias e bibliotecas:
 3. Desenvolva a funcionalidade e faça commits (`git commit -m "Descrição da mudança"`).  
 4. Envie um pull request para revisão.  
 
-## Contato  
-
-Para dúvidas ou sugestões, entre em contato com os desenvolvedores do projeto.  
