@@ -22,10 +22,10 @@ public class PackageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long packageId;
     
-    private Long containerID = -1L; // Indica que não pertence a um container
+    private Long containerId = -1L; // Indica que não pertence a um container
     
     @Column(nullable = false)
-    private Long statusID;     // Status do pacote, em preparação, entransito, entregue, aguardando transport..
+    private Long statusId;     // Status do pacote, em preparação, entransito, entregue, aguardando transport..
     
     @Column(nullable = false)
     private String trackerCode;  // Codigo de Rastreio
@@ -70,19 +70,19 @@ public class PackageEntity {
     }
 
     public Long getContainerID() {
-        return containerID;
+        return containerId;
     }
 
-    public void setContainerID(Long containerID) {
-        this.containerID = containerID;
+    public void setContainerID(Long containerId) {
+        this.containerId = containerId;
     }
 
     public Long getStatusID() {
-        return statusID;
+        return statusId;
     }
 
-    public void setStatusID(Long statusID) {
-        this.statusID = statusID;
+    public void setStatusID(Long statusId) {
+        this.statusId = statusId;
     }
 
     public String getTrackerCode() {
