@@ -2,6 +2,9 @@
 package com.rdtech.tracker_api.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
@@ -14,6 +17,11 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "HistoricOfPackage") // Define o nome da tabela no banco de dados
 public class HistoricOfPackageEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long Id;
+
     private Long packageId;       // Chave estrangeira do Package
     private Long containerId;     // Chave estrangerido do container
     private Object dataChanged;   // Data que o pacote mudou de container
