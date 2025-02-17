@@ -63,7 +63,7 @@ hs_err_pid*
 *.swo
 
 # Credenciais sensíveis
-application.properties
+#application.properties
 application.yml
 application-dev.properties
 application-dev.yml
