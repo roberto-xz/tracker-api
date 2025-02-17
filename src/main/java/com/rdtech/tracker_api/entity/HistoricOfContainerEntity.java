@@ -47,19 +47,19 @@ public class HistoricOfContainerEntity {
     
     
     
-    public Long getContainerID() {
+    public Long getContainerId() {
         return containerId;
     }
 
-    public void setContainerID(Long containerId) {
+    public void setContainerId(Long containerId) {
         this.containerId = containerId;
     }
 
-    public Long getVehicleID() {
+    public Long getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleID(Long vehicleId) {
+    public void setVehicleId(Long vehicleId) {
         this.vehicleId = vehicleId;
     }
 
