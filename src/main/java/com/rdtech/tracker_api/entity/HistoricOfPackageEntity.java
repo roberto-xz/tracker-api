@@ -21,7 +21,7 @@ public class HistoricOfPackageEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Long Id;
+    private Long historicOfPackageId;
 
     @Column(nullable = false)
     private Long packageId;       // Chave estrangeira do Package
@@ -37,6 +37,16 @@ public class HistoricOfPackageEntity {
     
     @Column(nullable = false)
     private String stateChanged;  // estado
+
+
+    public void setHistoricOfPackageId(Long id){
+        historicOfPackageId = id;
+    }
+
+    public Long  getHistoricOfPackageId(){
+        return  historicOfPackageId;
+    }
+
 
     public Long getPackageId() {
         return packageId;
