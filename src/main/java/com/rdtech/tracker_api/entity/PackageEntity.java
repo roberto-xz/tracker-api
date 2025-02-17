@@ -69,19 +69,19 @@ public class PackageEntity {
         this.packageId = packageId;
     }
 
-    public Long getContainerID() {
+    public Long getContainerId() {
         return containerId;
     }
 
-    public void setContainerID(Long containerId) {
+    public void setContainerId(Long containerId) {
         this.containerId = containerId;
     }
 
-    public Long getStatusID() {
+    public Long getStatusId() {
         return statusId;
     }
 
-    public void setStatusID(Long statusId) {
+    public void setStatusId(Long statusId) {
         this.statusId = statusId;
     }
 
