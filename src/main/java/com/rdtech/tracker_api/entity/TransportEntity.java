@@ -21,7 +21,7 @@ public class TransportEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Long id;
+    private Long transportId;
 
     @Column(nullable = false)
     private Long vehicleId;
@@ -56,9 +56,9 @@ public class TransportEntity {
     
     
 
-    public Long getId() { return id;}
-    public void setId(Long id) {
-        this.id = id;
+    public Long getTransportId() { return transportId;}
+    public void setTransportId(Long id) {
+        transportId = id;
     }
 
     public Long getVehicleId() {
