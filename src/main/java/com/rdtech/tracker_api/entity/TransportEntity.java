@@ -3,6 +3,9 @@ package com.rdtech.tracker_api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
@@ -15,6 +18,11 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Transport") // Define o nome da tabela no banco de dados
 public class TransportEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long id;
+
     @Column(nullable = false)
     private Long vehicleId;
     
@@ -47,6 +55,12 @@ public class TransportEntity {
 
     
     
+
+    public Long getId() { return id;}
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getVehicleId() {
         return vehicleId;
     }
