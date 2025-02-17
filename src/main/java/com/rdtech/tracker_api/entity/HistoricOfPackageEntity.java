@@ -1,6 +1,7 @@
 
 package com.rdtech.tracker_api.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,10 +23,19 @@ public class HistoricOfPackageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long Id;
 
+    @Column(nullable = false)
     private Long packageId;       // Chave estrangeira do Package
+    
+    @Column(nullable = false)
     private Long containerId;     // Chave estrangerido do container
+    
+    @Column(nullable = false)
     private Object dataChanged;   // Data que o pacote mudou de container
+    
+    @Column(nullable = false)
     private String cityChanged;   // cidade que o pacote mudou de container
+    
+    @Column(nullable = false)
     private String stateChanged;  // estado
 
     public Long getPackageId() {
