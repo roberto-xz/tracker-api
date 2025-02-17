@@ -20,12 +20,12 @@ import jakarta.persistence.Table;
 public class PackageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Double packageId;
+    private Long packageId;
     
-    private Double containerID = -1d; // Indica que não pertence a um container
+    private Long containerID = -1L; // Indica que não pertence a um container
     
     @Column(nullable = false)
-    private Double statusID;     // Status do pacote, em preparação, entransito, entregue, aguardando transport..
+    private Long statusID;     // Status do pacote, em preparação, entransito, entregue, aguardando transport..
     
     @Column(nullable = false)
     private String trackerCode;  // Codigo de Rastreio
@@ -61,27 +61,27 @@ public class PackageEntity {
     @Column(nullable = false)
     private Object expectedDeliveryDate; // Data prevista para entrega
 
-    public Double getPackageId() {
+    public Long getPackageId() {
         return packageId;
     }
 
-    public void setPackageId(Double packageId) {
+    public void setPackageId(Long packageId) {
         this.packageId = packageId;
     }
 
-    public Double getContainerID() {
+    public Long getContainerID() {
         return containerID;
     }
 
-    public void setContainerID(Double containerID) {
+    public void setContainerID(Long containerID) {
         this.containerID = containerID;
     }
 
-    public Double getStatusID() {
+    public Long getStatusID() {
         return statusID;
     }
 
-    public void setStatusID(Double statusID) {
+    public void setStatusID(Long statusID) {
         this.statusID = statusID;
     }
 
