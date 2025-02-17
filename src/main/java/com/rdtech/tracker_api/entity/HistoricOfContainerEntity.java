@@ -19,7 +19,10 @@ import jakarta.persistence.Table;
 @Table(name = "HistoricOfContainer") // Define o nome da tabela no banco de dados
 public class HistoricOfContainerEntity {
    
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long Id;
+    
     @Column(nullable = false)
     private Long containerId;
     
