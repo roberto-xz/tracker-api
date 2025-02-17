@@ -3,6 +3,9 @@ package com.rdtech.tracker_api.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
@@ -15,11 +18,16 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "HistoricOfContainer") // Define o nome da tabela no banco de dados
 public class HistoricOfContainerEntity {
-    @Column(nullable = false)
-    private Long containerID;
+   
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long historicOfContainerId;
     
     @Column(nullable = false)
-    private Long vehicleID;
+    private Long containerId;
+    
+    @Column(nullable = false)
+    private Long vehicleId;
     
     @Column(nullable = false)
     private String cityChanged; // cidade que o container mudou de véiculo
@@ -41,21 +49,28 @@ public class HistoricOfContainerEntity {
 
     
     
+    public void setHistoricOfContainerId(Long id) {
+        historicOfContainerId = id;
+    }
     
-    public Long getContainerID() {
-        return containerID;
+    public Long getHistoricOfContainerId() {
+        return historicOfContainerId;
     }
 
-    public void setContainerID(Long containerID) {
-        this.containerID = containerID;
+    public Long getContainerId() {
+        return containerId;
     }
 
-    public Long getVehicleID() {
-        return vehicleID;
+    public void setContainerId(Long containerId) {
+        this.containerId = containerId;
     }
 
-    public void setVehicleID(Long vehicleID) {
-        this.vehicleID = vehicleID;
+    public Long getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(Long vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
     public String getCityChanged() {

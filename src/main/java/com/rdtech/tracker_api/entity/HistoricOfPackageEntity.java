@@ -1,7 +1,11 @@
 
 package com.rdtech.tracker_api.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
@@ -14,11 +18,35 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "HistoricOfPackage") // Define o nome da tabela no banco de dados
 public class HistoricOfPackageEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long historicOfPackageId;
+
+    @Column(nullable = false)
     private Long packageId;       // Chave estrangeira do Package
+    
+    @Column(nullable = false)
     private Long containerId;     // Chave estrangerido do container
+    
+    @Column(nullable = false)
     private Object dataChanged;   // Data que o pacote mudou de container
+    
+    @Column(nullable = false)
     private String cityChanged;   // cidade que o pacote mudou de container
+    
+    @Column(nullable = false)
     private String stateChanged;  // estado
+
+
+    public void setHistoricOfPackageId(Long id){
+        historicOfPackageId = id;
+    }
+
+    public Long  getHistoricOfPackageId(){
+        return  historicOfPackageId;
+    }
+
 
     public Long getPackageId() {
         return packageId;
