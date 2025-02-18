@@ -3,7 +3,7 @@ package com.rdtech.tracker_api.entity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 
@@ -26,16 +26,16 @@ public class ContainerEntity {
     private Integer vehicleId;
 
     @Column(nullable = false)
-    private String districtDestine;
+    private String stateDestine;
 
     @Column(nullable = false)
     private String cityDestine;
 
     @Column(nullable = false)
-    private Date dateStartTransport;
+    private Object dateStartTransport;
 
     @Column(nullable = false)
-    private Date dateEndTransport;
+    private Object dateEndTransport;
 
     @Column(nullable = false)
     private Integer statusID;
@@ -46,11 +46,11 @@ public class ContainerEntity {
     public ContainerEntity() {
     }
 
-    public ContainerEntity(Integer containerId, Integer vehicleId, String districtDestine, String cityDestine,
-                           Date dateStartTransport, Date dateEndTransport, Integer statusID) {
+    public ContainerEntity(Integer containerId, Integer vehicleId, String stateDestine, String cityDestine,
+                           Object dateStartTransport, Object dateEndTransport, Integer statusID) {
         this.containerId = containerId;
         this.vehicleId = vehicleId;
-        this.districtDestine = districtDestine;
+        this.stateDestine = stateDestine;
         this.cityDestine = cityDestine;
         this.dateStartTransport = dateStartTransport;
         this.dateEndTransport = dateEndTransport;
@@ -76,12 +76,12 @@ public class ContainerEntity {
         this.vehicleId = vehicleId;
     }
 
-    public String getDistrictDestine() {
-        return districtDestine;
+    public String getStateDestine() {
+        return stateDestine;
     }
 
-    public void setDistrictDestine(String districtDestine) {
-        this.districtDestine = districtDestine;
+    public void setStateDestine(String stateDestineDestine) {
+        this.stateDestine = stateDestine;
     }
 
     public String getCityDestine() {
@@ -92,19 +92,19 @@ public class ContainerEntity {
         this.cityDestine = cityDestine;
     }
 
-    public Date getDateStartTransport() {
+    public Object getDateStartTransport() {
         return dateStartTransport;
     }
 
-    public void setDateStartTransport(Date dateStartTransport) {
+    public void setDateStartTransport(Object dateStartTransport) {
         this.dateStartTransport = dateStartTransport;
     }
 
-    public Date getDateEndTransport() {
+    public Object getDateEndTransport() {
         return dateEndTransport;
     }
 
-    public void setDateEndTransport(Date dateEndTransport) {
+    public void setDateEndTransport(Object dateEndTransport) {
         this.dateEndTransport = dateEndTransport;
     }
 
@@ -119,13 +119,13 @@ public class ContainerEntity {
     // Método changeVehicle
     public void changeVehicle(Integer newVehicleId) {
         this.vehicleId = newVehicleId;
-        this.history.add(new ContainerHistory("Mudança de Veículo", new Date(), newVehicleId, this.statusID));
+        this.history.add(new ContainerHistory("Mudança de Veículo", new Object(), newVehicleId, this.statusID));
     }
 
     // Método changeStatus
     public void changeStatus(Integer newStatusId) {
         this.statusID = newStatusId;
-        this.history.add(new ContainerHistory("Mudança de Status", new Date(), this.vehicleId, newStatusId));
+        this.history.add(new ContainerHistory("Mudança de Status", new Object(), this.vehicleId, newStatusId));
     }
 
     // Método getHistoric
@@ -140,12 +140,12 @@ public class ContainerEntity {
     // Classe privada para o histórico do container
     private static class ContainerHistory {
         private String description;
-        private Date timestamp;
+        private Object timestamp;
         private Integer vehicleId;
         private Integer statusID;
 
         // Construtor da classe
-        public ContainerHistory(String description, Date timestamp, Integer vehicleId, Integer statusID) {
+        public ContainerHistory(String description, Object timestamp, Integer vehicleId, Integer statusID) {
             this.description = description;
             this.timestamp = timestamp;
             this.vehicleId = vehicleId;
