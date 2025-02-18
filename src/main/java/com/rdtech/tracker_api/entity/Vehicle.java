@@ -1,16 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.rdtech.tracker_api.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
- *
- * @author roberto-xz
+ *****
+ * @date 17/02/2025
  * @author Juci-x
- */
+ *****
+ 
+ *****
+ * @date 18/02/2025
+ * @code_review roberto-xz
+ *****
+**/
 
 @Entity
 @Table(name = "Vehicle")
@@ -18,10 +25,10 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer vehicleId;
+    private Long vehicleId;
 
     @Column(nullable = false)
-    private Integer driverId;
+    private Long driverId;
 
     @Column(nullable = false)
     private String vehicleType;
@@ -33,19 +40,19 @@ public class Vehicle {
     private Integer vehicleCapacity;
 
 
-    public Integer getVehicleId() {
+    public Long getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId(Integer vehicleId) {
+    public void setVehicleId(Long vehicleId) {
         this.vehicleId = vehicleId;
     }
 
-    public Integer getDriverId() {
+    public Long getDriverId() {
         return driverId;
     }
 
-    public void setDriverId(Integer driverId) {
+    public void setDriverId(Long driverId) {
         this.driverId = driverId;
     }
 
