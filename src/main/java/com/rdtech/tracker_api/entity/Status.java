@@ -1,12 +1,24 @@
 package com.rdtech.tracker_api.entity;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
+ *****
+ * @date 17/02/2025
  * @author Juci-x
- */
-
+ *****
+ 
+ *****
+ * @date 18/02/2025
+ * @code_review roberto-xz
+ *****
+**/
 
 @Entity
 @Table(name = "Status")
@@ -14,16 +26,16 @@ public class Status {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer statusID;
+    private Long statusID;
 
     @Column(nullable = false)
     private String statusText;
 
-    public Integer getStatusID() {
+    public Long getStatusID() {
         return statusID;
     }
 
-    public void setStatusID(Integer statusID) {
+    public void setStatusID(Long statusID) {
         this.statusID = statusID;
     }
 
