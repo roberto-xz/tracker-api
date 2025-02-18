@@ -4,17 +4,32 @@
  */
 package com.rdtech.tracker_api.entity;
 
+import jakarta.persistence.*;
+
 /**
  *
  * @author roberto-xz
  * @author Juci-x
  */
+
+@Entity
+@Table(name = "Vehicle")
 public class Vehicle {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer vehicleId;
+
+    @Column(nullable = false)
     private Integer driverId;
+
+    @Column(nullable = false)
     private String vehicleType;
+
+    @Column(nullable = false)
     private String vehiclePlate;
+
+    @Column(nullable = false)
     private Integer vehicleCapacity;
 
 
