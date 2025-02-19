@@ -30,7 +30,7 @@ public class HistoricOfPackageEntity {
     private Long containerId;     // Chave estrangerido do container
     
     @Column(nullable = false)
-    private Object dataChanged;   // Data que o pacote mudou de container
+    private String dataChanged;   // Data que o pacote mudou de container
     
     @Column(nullable = false)
     private String cityChanged;   // cidade que o pacote mudou de container
@@ -64,11 +64,11 @@ public class HistoricOfPackageEntity {
         this.containerId = containerId;
     }
 
-    public Object getDataChanged() {
+    public String getDataChanged() {
         return dataChanged;
     }
 
-    public void setDataChanged(Object dataChanged) {
+    public void setDataChanged(String dataChanged) {
         this.dataChanged = dataChanged;
     }
 

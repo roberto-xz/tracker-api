@@ -45,10 +45,10 @@ public class TransportEntity {
     private String cityDestine;  //
     
     @Column(nullable = false)
-    private Object dateArrived;  // Data que chegou no local
+    private String dateArrived;  // Data que chegou no local
     
     @Column(nullable = false)
-    private Object dateLeave;    // Data que vai partir
+    private String dateLeave;    // Data que vai partir
     
     @Column(nullable = false)
     private Integer estimatedTimeToNextStop; // Tempo em horas, até a próxima parada
@@ -117,19 +117,19 @@ public class TransportEntity {
         this.cityDestine = cityDestine;
     }
 
-    public Object getDateArrived() {
+    public String getDateArrived() {
         return dateArrived;
     }
 
-    public void setDateArrived(Object dateArrived) {
+    public void setDateArrived(String dateArrived) {
         this.dateArrived = dateArrived;
     }
 
-    public Object getDateLeave() {
+    public String getDateLeave() {
         return dateLeave;
     }
 
-    public void setDateLeave(Object dateLeave) {
+    public void setDateLeave(String dateLeave) {
         this.dateLeave = dateLeave;
     }
 

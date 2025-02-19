@@ -40,10 +40,10 @@ public class ContainerEntity {
     private String cityDestine;
 
     @Column(nullable = false)
-    private Object dateStartTransport;
+    private String dateStartTransport;
 
     @Column(nullable = false)
-    private Object dateEndTransport;
+    private String dateEndTransport;
 
     public Long getContainerId() {
         return containerId;
@@ -85,20 +85,19 @@ public class ContainerEntity {
         this.cityDestine = cityDestine;
     }
 
-    public Object getDateStartTransport() {
+    public String getDateStartTransport() {
         return dateStartTransport;
     }
 
-    public void setDateStartTransport(Object dateStartTransport) {
+    public void setDateStartTransport(String dateStartTransport) {
         this.dateStartTransport = dateStartTransport;
     }
 
-    public Object getDateEndTransport() {
+    public String getDateEndTransport() {
         return dateEndTransport;
     }
 
-    public void setDateEndTransport(Object dateEndTransport) {
+    public void setDateEndTransport(String dateEndTransport) {
         this.dateEndTransport = dateEndTransport;
     }
-
 }
