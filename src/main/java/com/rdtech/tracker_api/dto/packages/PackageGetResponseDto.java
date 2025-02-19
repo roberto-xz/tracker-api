@@ -1,5 +1,5 @@
 package com.rdtech.tracker_api.dto.packages;
 
-public class RequestPackageDto {
+public class PackageGetResponseDto {
 
 }
