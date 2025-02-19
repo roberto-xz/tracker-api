@@ -34,7 +34,7 @@ public class Driver {
     private String driverRegisterCode;
 
     @Column(nullable = false)
-    private Object driverDateOfBirth;
+    private String driverDateOfBirth;
 
 
     public Long getDriverId() {
@@ -61,11 +61,11 @@ public class Driver {
         this.driverRegisterCode = driverRegisterCode;
     }
 
-    public Object getDriverDateOfBirth() {
+    public String getDriverDateOfBirth() {
         return driverDateOfBirth;
     }
 
-    public void setDriverDateOfBirth(Object driverDateOfBirth) {
+    public void setDriverDateOfBirth(String driverDateOfBirth) {
         this.driverDateOfBirth = driverDateOfBirth;
     }
 }

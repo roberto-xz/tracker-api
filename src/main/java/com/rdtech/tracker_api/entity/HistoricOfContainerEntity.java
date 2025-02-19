@@ -36,13 +36,13 @@ public class HistoricOfContainerEntity {
     private String stateChanged;// estado, exemplo: Pernambuco, Rio, Amapá
     
     @Column(nullable = false)
-    private Object dateArrived; // data que o veículo chegou nesse local
+    private String dateArrived; // data que o veículo chegou nesse local
     
     @Column(nullable = false)
-    private Object dataLeave;   // data que saio
+    private String dataLeave;   // data que saio
     
     @Column(nullable = false)
-    private Object dataVehicleChanged; // data que ouve a troca de veículos
+    private String dataVehicleChanged; // data que ouve a troca de veículos
     
     @Column(nullable = false)
     private Integer changedOfVehicles; // Quantidade de vezes que esse container mudou de veículo
@@ -89,27 +89,27 @@ public class HistoricOfContainerEntity {
         this.stateChanged = stateChanged;
     }
 
-    public Object getDateArrived() {
+    public String getDateArrived() {
         return dateArrived;
     }
 
-    public void setDateArrived(Object dateArrived) {
+    public void setDateArrived(String dateArrived) {
         this.dateArrived = dateArrived;
     }
 
-    public Object getDataLeave() {
+    public String getDataLeave() {
         return dataLeave;
     }
 
-    public void setDataLeave(Object dataLeave) {
+    public void setDataLeave(String dataLeave) {
         this.dataLeave = dataLeave;
     }
 
-    public Object getDataVehicleChanged() {
+    public String getDataVehicleChanged() {
         return dataVehicleChanged;
     }
 
-    public void setDataVehicleChanged(Object dataVehicleChanged) {
+    public void setDataVehicleChanged(String dataVehicleChanged) {
         this.dataVehicleChanged = dataVehicleChanged;
     }
 
