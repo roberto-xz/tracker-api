@@ -24,9 +24,17 @@ public class ContainerGetResponseDto {
     public ContainerGetResponseDto() {
     }
 
-    public ContainerGetResponseDto(Long containerId, Long vehilceId, String stateDestine, String cityDestine,
-            String dateStartTransport, String dateEndTransport, Integer maxPackages, Integer numPackages,
-            List<HistoricOfContainerDto> historic) {
+    public ContainerGetResponseDto(
+            Long containerId, 
+            Long vehilceId, 
+            String stateDestine, 
+            String cityDestine,
+            String dateStartTransport, 
+            String dateEndTransport, 
+            Integer maxPackages, 
+            Integer numPackages,
+            List<HistoricOfContainerDto> historic
+    ){
         this.containerId = containerId;
         this.vehilceId = vehilceId;
         this.stateDestine = stateDestine;
