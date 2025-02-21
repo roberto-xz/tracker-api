@@ -14,7 +14,7 @@ import com.rdtech.tracker_api.service.driver.CreateDriverService;
 
 @RestController
 @RequestMapping("/api/driver")
-public class CreateDriver {
+public class CreateDriverController {
     @Autowired
     private CreateDriverService createDriver;
 
