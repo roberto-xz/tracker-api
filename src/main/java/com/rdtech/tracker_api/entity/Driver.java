@@ -30,7 +30,7 @@ public class Driver {
     @Column(nullable = false)
     private String driverFullName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String driverRegisterCode;
 
     @Column(nullable = false)
