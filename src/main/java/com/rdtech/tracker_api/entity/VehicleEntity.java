@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Vehicle")
-public class Vehicle {
+public class VehicleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +39,27 @@ public class Vehicle {
     @Column(nullable = false)
     private Integer vehicleCapacity;
 
+    public Boolean getVehicleAsProblem() {
+        return vehicleAsProblem;
+    }
+
+    public void setVehicleAsProblem(Boolean vehicleAsProblem) {
+        this.vehicleAsProblem = vehicleAsProblem;
+    }
+
+    public Integer getVehicleProblemLevel() {
+        return vehicleProblemLevel;
+    }
+
+    public void setVehicleProblemLevel(Integer vehicleProblemLevel) {
+        this.vehicleProblemLevel = vehicleProblemLevel;
+    }
+
+    @Column(nullable = false)
+    private Boolean vehicleAsProblem = false;
+
+    @Column(nullable = false)
+    private Integer vehicleProblemLevel = 0;
 
     public Long getVehicleId() {
         return vehicleId;
