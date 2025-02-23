@@ -22,24 +22,28 @@ public class PackageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long packageId;
     
+
     private Long containerId = -1L; // Indica que não pertence a um container
-    
-    @Column(nullable = false)
-    private Long statusId;     // Status do pacote, em preparação, entransito, entregue, aguardando transport..
-    
-    @Column(nullable = false)
-    private String trackerCode;  // Codigo de Rastreio
-    
+    private Long statusId;          // Status do pacote, em preparação, entransito, entregue, aguardando transport..
+    private String trackerCode;     // Codigo de Rastreio
+    private String description;
+    private String dateStartTransport;   // Data do início do transport
+    private String dateEndTransport;     // Data da entrega
+    private String expectedDeliveryDate; // Data prevista para entrega
+
     @Column(nullable = false)
     private String userUUID;
-    private String description;
+    
   
     @Column(nullable = false)
     private String stateOrigem;  // Estado de Origem, exp: Pernambuco, São Paulo, Goiais, etc..
+
     @Column(nullable = false)
     private String cityOrigem;   // cidade de Origem
+   
     @Column(nullable = false)
     private String stateDestine;
+   
     @Column(nullable = false)
     private String cityDestine;
     
@@ -52,15 +56,8 @@ public class PackageEntity {
     @Column(nullable = false)
     private String homeNumber;   // Número da casa
     
-    @Column(nullable = false)
-    private String dateStartTransport;   // Data do início do transport
     
-    @Column(nullable = false)
-    private String dateEndTransport;     // Data da entrega
     
-    @Column(nullable = false)
-    private String expectedDeliveryDate; // Data prevista para entrega
-
     public Long getPackageId() {
         return packageId;
     }

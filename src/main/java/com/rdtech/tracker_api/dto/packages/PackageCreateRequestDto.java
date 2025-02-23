@@ -15,7 +15,7 @@ public class PackageCreateRequestDto {
     private String cityDestine;
     private String neighborhood;
     private String streetAddress;
-    private Integer homeNumber;
+    private String homeNumber;
     private String description;
 
     public String getUserUUID() {return userUUID;}
@@ -32,8 +32,8 @@ public class PackageCreateRequestDto {
     public void setNeighborhood(String neighborhood) {this.neighborhood = neighborhood;}
     public String getStreetAddress() {return streetAddress;}
     public void setStreetAddress(String streetAddress) {this.streetAddress = streetAddress;}
-    public Integer getHomeNumber() {return homeNumber;}
-    public void setHomeNumber(Integer homeNumber) {this.homeNumber = homeNumber;}
+    public String getHomeNumber() {return homeNumber;}
+    public void setHomeNumber(String homeNumber) {this.homeNumber = homeNumber;}
     public String getDescription() {return description;}
     public void setDescription(String description) {this.description = description;}
 }

@@ -22,7 +22,7 @@ public class PackageGetResponseDto {
     private String cityDestine;
     private String neighborhood;
     private String streetAddress;
-    private Integer homeNumber;
+    private String homeNumber;
     private String description;
     private List<HistoricOfPackageDto> historic;
 
@@ -38,7 +38,7 @@ public class PackageGetResponseDto {
             String cityDestine,
             String neighborhood,
             String streetAddress,
-            Integer homeNumber,
+            String homeNumber,
             String description,
             List<HistoricOfPackageDto> historic
     ) {
@@ -77,8 +77,8 @@ public class PackageGetResponseDto {
     public void setNeighborhood(String neighborhood) {this.neighborhood = neighborhood;}
     public String getStreetAddress() {return streetAddress;}
     public void setStreetAddress(String streetAddress) {this.streetAddress = streetAddress;}
-    public Integer getHomeNumber() {return homeNumber;}
-    public void setHomeNumber(Integer homeNumber) {this.homeNumber = homeNumber;}
+    public String getHomeNumber() {return homeNumber;}
+    public void setHomeNumber(String homeNumber) {this.homeNumber = homeNumber;}
     public String getDescription() {return description;}
     public void setDescription(String description) {this.description = description;}
     public List<HistoricOfPackageDto> getHistoric() {return historic;}
