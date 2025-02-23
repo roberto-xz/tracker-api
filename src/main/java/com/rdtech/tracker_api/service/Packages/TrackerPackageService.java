@@ -53,7 +53,6 @@ public class TrackerPackageService {
         // verifica se há um pacote com o código de rastreio fornecido.
         if (pkgRepo.existsByTrackerCode(trackerCode)) {
             PackageEntity pkg = pkgRepo.getByTrackerCode(trackerCode); // obtém o pacote
-            
             // obtem o histórico do pacote
             historicPackageList = pkgHistoric.findByPackageId(pkg.getPackageId());
             
@@ -61,6 +60,7 @@ public class TrackerPackageService {
             // e salva em uma lista
             historicPackageList.forEach(row -> {
                 Long containerId = row.getContainerId();
+                System.out.println("container encontrado: "+containerId);
                 Optional<HistoricOfContainerEntity> container = cntHistoric.findById(containerId);
                 
                 if (container.isPresent()) {
@@ -88,6 +88,7 @@ public class TrackerPackageService {
                 return res;
             }
         }
-        return null;
+        
+        res.add(null); return res;
     }
 }
