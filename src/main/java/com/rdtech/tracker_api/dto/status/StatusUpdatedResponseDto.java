@@ -9,16 +9,16 @@ package com.rdtech.tracker_api.dto.status;
 
 public class StatusUpdatedResponseDto {
     private Long statusId;
-    private String menssagem;
+    private String message;
 
     public StatusUpdatedResponseDto() {}
-    public StatusUpdatedResponseDto(Long statusId, String menssagem) {
+    public StatusUpdatedResponseDto(Long statusId, String message) {
         this.statusId = statusId;
-        this.menssagem = menssagem;
+        this.message = message;
     }
 
     public Long getStatusId() {return statusId;}
     public void setStatusId(Long statusId) {this.statusId = statusId;}
-    public String getMenssagem() {return menssagem;}
-    public void setMenssagem(String menssagem) {this.menssagem = menssagem;}
+    public String getMessage() {return message;}
+    public void setMessage(String message) {this.message = message;}
 }
