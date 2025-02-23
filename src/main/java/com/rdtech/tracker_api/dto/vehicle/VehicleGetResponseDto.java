@@ -19,6 +19,7 @@ public class VehicleGetResponseDto {
     private Integer vehicleProblemLevel;
     private List<HistoricOfTransportDto> historic;
 
+    public VehicleGetResponseDto() {}
     public VehicleGetResponseDto(
         Long vehicleId, 
         Long driverID, 
@@ -38,6 +39,8 @@ public class VehicleGetResponseDto {
         this.vehicleProblemLevel = vehicleProblemLevel;
         this.historic = historic;
     }
+
+
 
     public Long getVehicleId() {
         return vehicleId;

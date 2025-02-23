@@ -8,17 +8,17 @@ package com.rdtech.tracker_api.dto.vehicle;
  *****
 **/
 public class VehicleDeletedResponseDto {
-    private String messagem;
+    private String message;
     private Integer statusCode;
     
     public VehicleDeletedResponseDto(){}
     
-    public VehicleDeletedResponseDto(String messagem, Integer statusCode) {
-        this.messagem = messagem;
+    public VehicleDeletedResponseDto(String message, Integer statusCode) {
+        this.message = message;
         this.statusCode = statusCode;
     }
-    public String getMessagem() {return messagem;}
-    public void setMessagem(String messagem) {this.messagem = messagem;}
+    public String getMessage() {return message;}
+    public void setMessage(String message) {this.message = message;}
     public Integer getStatusCode() {return statusCode;}
     public void setStatusCode(Integer statusCode) {this.statusCode = statusCode;}
 }
