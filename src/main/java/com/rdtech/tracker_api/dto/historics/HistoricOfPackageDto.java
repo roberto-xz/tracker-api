@@ -12,23 +12,19 @@ public class HistoricOfPackageDto {
     private String dateChanged;
     private String cityChanged;
     private String stateChanged;
-    private Integer changedOfContainers;
-    
-
+ 
 
     public HistoricOfPackageDto() {}
     public HistoricOfPackageDto(
         Long containerId, 
         String dateChanged, 
         String cityChanged, 
-        String stateChanged,
-        Integer changedOfContainers
+        String stateChanged
     ) {
         this.containerId = containerId;
         this.dateChanged = dateChanged;
         this.cityChanged = cityChanged;
         this.stateChanged = stateChanged;
-        this.changedOfContainers = changedOfContainers;
     }
 
 
@@ -55,11 +51,5 @@ public class HistoricOfPackageDto {
     }
     public void setStateChanged(String stateChanged) {
         this.stateChanged = stateChanged;
-    }
-    public Integer getChangedOfContainers() {
-        return changedOfContainers;
-    }
-    public void setChangedOfContainers(Integer changedOfContainers) {
-        this.changedOfContainers = changedOfContainers;
-    }    
+    }  
 }
