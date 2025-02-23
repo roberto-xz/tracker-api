@@ -25,13 +25,15 @@ public class PackageEntity {
 
     private Long containerId = -1L; // Indica que não pertence a um container
     private Long statusId;          // Status do pacote, em preparação, entransito, entregue, aguardando transport..
+   
+    @Column(unique = true)
     private String trackerCode;     // Codigo de Rastreio
     private String description;
     private String dateStartTransport;   // Data do início do transport
     private String dateEndTransport;     // Data da entrega
     private String expectedDeliveryDate; // Data prevista para entrega
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String userUUID;
     
   
