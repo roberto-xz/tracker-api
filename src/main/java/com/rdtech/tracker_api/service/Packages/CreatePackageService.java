@@ -2,11 +2,13 @@
 package com.rdtech.tracker_api.service.Packages;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import com.rdtech.tracker_api.dto.packages.PackageCreateRequestDto;
 import com.rdtech.tracker_api.dto.packages.PackageCreatedResponseDto;
 import com.rdtech.tracker_api.entity.PackageEntity;
+import com.rdtech.tracker_api.event.packages.PackageCreatedEvent;
 import com.rdtech.tracker_api.repository.PackageRepository;
 
 /**
@@ -19,10 +21,12 @@ import com.rdtech.tracker_api.repository.PackageRepository;
 @Service
 public class CreatePackageService {
     private final PackageRepository packageRepository;
-    
+    private final ApplicationEventPublisher event;
+
     @Autowired
-    public CreatePackageService(PackageRepository repo) {
+    public CreatePackageService(PackageRepository repo, ApplicationEventPublisher event) {
         this.packageRepository = repo;
+        this.event = event;
     }
 
     public PackageCreatedResponseDto run(PackageCreateRequestDto req) {
@@ -46,6 +50,15 @@ public class CreatePackageService {
         res.setTrackerCode(null);
         res.setStatusId(null);
         res.setStatusCode(200);
+
+        /**
+         *****
+         * @date 23/02/2025
+         * @author roberto-xz
+         *****
+        */
+        // dispara o evento para os observers
+        this.event.publishEvent(new PackageCreatedEvent(this, packageCreated));
         return res;
     }
 }
