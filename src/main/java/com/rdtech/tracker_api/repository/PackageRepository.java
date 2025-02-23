@@ -13,4 +13,6 @@ import com.rdtech.tracker_api.entity.PackageEntity;
  */
 
 @Repository
-public interface PackageRepository extends JpaRepository<PackageEntity, Long>{}
+public interface PackageRepository extends JpaRepository<PackageEntity, Long>{
+    boolean existsByTrackerCode(String trackerCode);
+}
