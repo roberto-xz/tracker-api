@@ -7,7 +7,8 @@ package com.rdtech.tracker_api.dto.container;
  * @author roberto-xz
  *****
 **/
-public class ContainerCreateRequestDto {    
+public class ContainerCreateRequestDto {
+    private Long containerId;
     private Long vehicleId;
     private String stateDestine;
     private String cityDestine;
@@ -16,6 +17,8 @@ public class ContainerCreateRequestDto {
     private Integer maxPackages;
 
 
+    public Long getContainerId() {return containerId;}
+    public void setContainerId(Long containerId) {this.containerId = containerId;}
     public Long getVehicleId() {
         return vehicleId;
     }
