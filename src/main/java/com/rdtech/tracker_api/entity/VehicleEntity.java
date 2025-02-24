@@ -39,6 +39,8 @@ public class VehicleEntity {
     @Column(nullable = false)
     private Integer vehicleCapacity;
 
+    private Boolean isAvailable = true;
+
     public Boolean getVehicleAsProblem() {
         return vehicleAsProblem;
     }
@@ -99,5 +101,13 @@ public class VehicleEntity {
 
     public void setVehicleCapacity(Integer vehicleCapacity) {
         this.vehicleCapacity = vehicleCapacity;
+    }
+
+    public Boolean getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }
