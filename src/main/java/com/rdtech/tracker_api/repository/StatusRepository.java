@@ -13,4 +13,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StatusRepository extends JpaRepository<Status,Long> {
     boolean existsByStatusText(String statusText);
+    Status getByStatusText(String statusText);
 }

@@ -15,7 +15,7 @@ public class VehicleUpdateRequestDto {
 
 
     public Long getVehicleId() {return vehicleId;}
-    public void setVehicleId(Long driverID) {this.vehicleId = vehicleId;}
+    public void setVehicleId(Long vehicleId) {this.vehicleId = vehicleId;}
     public Long getDriverID() {return driverID;}
     public void setDriverID(Long driverID) {this.driverID = driverID;}
     public Boolean getVehicleAsProblem() {return vehicleAsProblem;}

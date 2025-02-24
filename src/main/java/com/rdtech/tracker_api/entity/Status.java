@@ -28,6 +28,11 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long statusID;
 
+    public Status() {}
+    public Status(String statusText) {
+        this.statusText = statusText;
+    }
+
     @Column(nullable = false)
     private String statusText;
 
