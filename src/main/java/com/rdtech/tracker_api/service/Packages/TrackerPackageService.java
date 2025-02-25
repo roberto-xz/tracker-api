@@ -71,19 +71,21 @@ public class TrackerPackageService {
             // se a lista de veículos não for vazia
             if (!vehiclesIdList.isEmpty()) {
                 vehiclesIdList.forEach(vehicleId -> {
-                    HistoricOfTransportEntity transport = trsHistoric.getByVehicleId(vehicleId);
-                    PackageTrackerResponseDto rowAuxDto = new PackageTrackerResponseDto();
+                    List<HistoricOfTransportEntity> transport = trsHistoric.getByVehicleId(vehicleId);
                     
-                    if (transport != null) {
-                        rowAuxDto.setStateLastCheckin(transport.getStateLastCheckin());
-                        rowAuxDto.setCityLastCheckin(transport.getCityLastCheckin());
-                        rowAuxDto.setStateDestine(transport.getStateDestine());
-                        rowAuxDto.setCityDestine(transport.getCityDestine());
-                        rowAuxDto.setDateArrived(transport.getDateArrived());
-                        rowAuxDto.setDateLeave(transport.getDateLeave());
-                        rowAuxDto.setEstimatedTime2Nstop(transport.getEstimatedTimeToNextStop());
+                    if (!transport.isEmpty()) {
+                        transport.forEach(h -> {
+                            PackageTrackerResponseDto rowAuxDto = new PackageTrackerResponseDto();
+                            rowAuxDto.setStateLastCheckin(h.getStateLastCheckin());
+                            rowAuxDto.setCityLastCheckin(h.getCityLastCheckin());
+                            rowAuxDto.setStateDestine(h.getStateDestine());
+                            rowAuxDto.setCityDestine(h.getCityDestine());
+                            rowAuxDto.setDateArrived(h.getDateArrived());
+                            rowAuxDto.setDateLeave(h.getDateLeave());
+                            rowAuxDto.setEstimatedTime2Nstop(h.getEstimatedTimeToNextStop());
+                            res.add(rowAuxDto);
+                        });
                     }
-                    res.add(rowAuxDto);
                 });
                 return res;
             }

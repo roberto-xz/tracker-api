@@ -1,5 +1,7 @@
 package com.rdtech.tracker_api.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.rdtech.tracker_api.entity.HistoricOfTransportEntity;
@@ -12,5 +14,5 @@ import com.rdtech.tracker_api.entity.HistoricOfTransportEntity;
  */
 @Repository
 public interface HistoricOfTransportRepository extends JpaRepository<HistoricOfTransportEntity, Long> {
-    HistoricOfTransportEntity getByVehicleId(Long vehicleId);
+    List<HistoricOfTransportEntity> getByVehicleId(Long vehicleId);
 }

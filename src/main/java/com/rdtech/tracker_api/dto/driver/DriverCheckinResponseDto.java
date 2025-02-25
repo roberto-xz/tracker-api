@@ -7,7 +7,7 @@ package com.rdtech.tracker_api.dto.driver;
  * @author roberto-xz
  *****
  */
-public class driverCheckinResponseDto {
+public class DriverCheckinResponseDto {
     private String message;
     private Integer statusCode;
     
