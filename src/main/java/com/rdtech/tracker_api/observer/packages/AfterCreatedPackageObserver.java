@@ -2,12 +2,14 @@
 package com.rdtech.tracker_api.observer.packages;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import com.rdtech.tracker_api.entity.ContainerEntity;
 import com.rdtech.tracker_api.entity.HistoricOfPackageEntity;
 import com.rdtech.tracker_api.entity.PackageEntity;
 import com.rdtech.tracker_api.entity.Status;
+import com.rdtech.tracker_api.event.container.ContainerReachedLimitEvent;
 import com.rdtech.tracker_api.event.packages.PackageCreatedEvent;
 import com.rdtech.tracker_api.repository.ContainerRepository;
 import com.rdtech.tracker_api.repository.HistoricOfPackageRepository;
@@ -32,6 +34,7 @@ public class AfterCreatedPackageObserver {
     private final ContainerRepository  containerRepository;
     private final StatusRepository     statusRepository;
     private final HistoricOfPackageRepository historicOfPackageRepository;
+    private final ApplicationEventPublisher event;
 
     private final String packageStatus  = "Aguardando Transporte";
     private final String containeStatus = "Aguardando Pacotes";
@@ -41,12 +44,14 @@ public class AfterCreatedPackageObserver {
         PackageRepository p, 
         ContainerRepository c,
         StatusRepository s,
-        HistoricOfPackageRepository h    
+        HistoricOfPackageRepository h,
+        ApplicationEventPublisher e    
     ) {
         this.packageRepository = p;
         this.containerRepository = c;
         this.statusRepository = s;
         this.historicOfPackageRepository = h;
+        this.event = e;
     }
 
     @EventListener
@@ -81,6 +86,10 @@ public class AfterCreatedPackageObserver {
         this.packageRepository.save(this.packageEntity);
         this.containerRepository.save(this.containerEntity);
         this.createHistoric();
+
+        // dispara um evento para verificar se o container
+        // atingiou seu limite 
+        this.event.publishEvent(new ContainerReachedLimitEvent(this, this.containerEntity));
     }
     
     
@@ -107,7 +116,7 @@ public class AfterCreatedPackageObserver {
         this.containerEntity.setStatusID(-1L);
         this.containerEntity.setDateStartTransport("00-00-00 00:00 PM");
         this.containerEntity.setDateEndTransport("00-00-00 00:00 PM");
-        this.containerEntity.setMaxPackages(120);
+        this.containerEntity.setMaxPackages(5); // limite máximo de pacotes
         this.containerEntity.setNumPackages(1);
 
         // precisa salvar para obter ID, e atribuir ao pacote

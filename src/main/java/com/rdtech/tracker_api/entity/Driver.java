@@ -36,7 +36,8 @@ public class Driver {
     @Column(nullable = false)
     private String driverDateOfBirth;
 
-
+    private Boolean isAvailable = true;
+    
     public Long getDriverId() {
         return driverId;
     }
@@ -67,5 +68,13 @@ public class Driver {
 
     public void setDriverDateOfBirth(String driverDateOfBirth) {
         this.driverDateOfBirth = driverDateOfBirth;
+    }
+
+    public Boolean getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }
