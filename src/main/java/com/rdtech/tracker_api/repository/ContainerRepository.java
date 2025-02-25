@@ -1,6 +1,8 @@
 
 package com.rdtech.tracker_api.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,5 +17,6 @@ import com.rdtech.tracker_api.entity.ContainerEntity;
  */
 public interface ContainerRepository extends JpaRepository<ContainerEntity, Long> {
     @Query("SELECT c FROM ContainerEntity c WHERE c.stateDestine = :stateDestine AND c.numPackages < c.maxPackages")
-    ContainerEntity getByStateDestine(@Param("stateDestine") String stateDestine);
+    List<ContainerEntity> getByStateDestine(@Param("stateDestine") String stateDestine);
+
 }

@@ -1,8 +1,6 @@
 
 package com.rdtech.tracker_api.event.container;
 import org.springframework.context.ApplicationEvent;
-import com.rdtech.tracker_api.entity.ContainerEntity;
-import com.rdtech.tracker_api.entity.VehicleEntity;
 
 /**
  *****
@@ -11,15 +9,15 @@ import com.rdtech.tracker_api.entity.VehicleEntity;
  *****
  */
 public class ContainerChangedVehicleEvent  extends ApplicationEvent{
-   private final ContainerEntity containerEntity;
-   private final VehicleEntity vehicleEntity;
+   private final Long containerId;
+   private final Long vehicleId;
 
-   public ContainerChangedVehicleEvent(Object source, ContainerEntity c, VehicleEntity v){
+   public ContainerChangedVehicleEvent(Object source, Long c, long v){
       super(source);
-      this.containerEntity = c;
-      this.vehicleEntity = v;
+      this.containerId = c;
+      this.vehicleId = v;
    }
-      
-   public ContainerEntity getContainer(){return this.containerEntity;}
-   public VehicleEntity getVehicle(){return this.vehicleEntity;}
+
+   public Long getContainerId() {return containerId;}
+   public Long getVehicleId() {return vehicleId;}
 }

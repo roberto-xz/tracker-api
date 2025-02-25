@@ -1,6 +1,8 @@
 
 package com.rdtech.tracker_api.observer.packages;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
@@ -94,7 +96,13 @@ public class AfterCreatedPackageObserver {
     
     
     private boolean setExistentContainer() {
-        this.containerEntity = this.containerRepository.getByStateDestine(this.packageEntity.getStateDestine());
+        //this.containerEntity = this.containerRepository.getByStateDestine(this.packageEntity.getStateDestine());
+        String destine = this.packageEntity.getStateDestine();
+        List<ContainerEntity> containersFind = this.containerRepository.getByStateDestine(destine);
+        
+        if (containersFind.isEmpty()) {return false;}
+
+       this.containerEntity = containersFind.get(0);
         
         if (this.containerEntity != null) {   
             this.packageEntity.setContainerId(this.containerEntity.getContainerId());

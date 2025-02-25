@@ -1,6 +1,7 @@
 
 package com.rdtech.tracker_api.service.Packages;
 
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,19 +25,16 @@ public class DeletePackageService {
         this.packageRepository = repo;
     }
 
-    public PackageDeletedResponseDto run(Long packgeId) {
-        PackageDeletedResponseDto res = new PackageDeletedResponseDto();
+    public Object run(Long packgeId) {
         Optional<PackageEntity> packageFnd = packageRepository.findById(packgeId);
 
         if (packageFnd.isPresent()) {
             packageRepository.deleteById(packgeId);
-            res.setMessagem("O pacote foi excluido");
-            res.setStatusCode(200);
-            return res;
+            Map<String,Object> response = Map.of("message", "O Pacote foi Excludo","StatusCode", 200);
+            return response;
         }
 
-        res.setMessagem("O pacote não existe");
-        res.setStatusCode(404);
-        return res;
+        Map<String,Object> response = Map.of("message", "O Pacote Não foi encontrado","StatusCode", 404);
+        return response;
     } 
 }

@@ -33,7 +33,7 @@ public class PackageEntity {
     private String dateEndTransport;     // Data da entrega
     private String expectedDeliveryDate; // Data prevista para entrega
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String userUUID;
     
   

@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.rdtech.tracker_api.dto.packages.PackageDeletedResponseDto;
 import com.rdtech.tracker_api.service.Packages.DeletePackageService;
 
 
@@ -26,9 +24,7 @@ public class DeletePackageController {
     DeletePackageService deletePackage;
 
     @DeleteMapping("/delete/{packageId}")
-    public PackageDeletedResponseDto run(@PathVariable Long packageId) {
-        PackageDeletedResponseDto res = deletePackage.run(packageId);
-        if (res.getStatusCode() == 200){}
-        return res;
+    public Object run(@PathVariable Long packageId) {
+        return deletePackage.run(packageId);
     }
 }

@@ -13,8 +13,6 @@ public class PackageUpdateRequestDto {
     private String neighborhood;
     private String streetAddress;
     private String homeNumber;
-    private Long containerId;
-    private Long statusId;
     private Long packageId;
 
     
@@ -29,10 +27,6 @@ public class PackageUpdateRequestDto {
     public void setStreetAddress(String streetAddress) {this.streetAddress = streetAddress;}
     public String getHomeNumber() {return homeNumber;}
     public void setHomeNumber(String homeNumber) {this.homeNumber = homeNumber;}
-    public Long getContainerId() {return containerId;}
-    public void setContainerId(Long containerId) {this.containerId = containerId;}
-    public Long getStatusId() {return statusId;}
-    public void setStatusId(Long statusId) {this.statusId = statusId;}
 
     public Long getPackageId() {return packageId;}
     public void setPackageId(Long packageId) {this.packageId = packageId;}

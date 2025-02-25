@@ -1,9 +1,12 @@
 
 package com.rdtech.tracker_api.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.rdtech.tracker_api.entity.HistoricOfContainerEntity;
+
 
 /**
  *****
@@ -12,4 +15,6 @@ import com.rdtech.tracker_api.entity.HistoricOfContainerEntity;
  *****
  */
 @Repository
-public interface HistoricOfContainerRepository extends JpaRepository<HistoricOfContainerEntity, Long>{}
+public interface HistoricOfContainerRepository extends JpaRepository<HistoricOfContainerEntity, Long>{
+     List<HistoricOfContainerEntity> findByContainerId(Long containerId);
+}
