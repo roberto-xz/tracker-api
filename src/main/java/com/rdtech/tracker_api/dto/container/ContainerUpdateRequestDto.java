@@ -8,6 +8,7 @@ package com.rdtech.tracker_api.dto.container;
  *****
 **/
 public class ContainerUpdateRequestDto {
+    private Long containerId;
     private Long vehicleId;
     private String dateStartTransport;
     private String dateEndTransport;
@@ -15,6 +16,8 @@ public class ContainerUpdateRequestDto {
     private Integer numPackages;
     private Long statusId;
 
+    public Long getContainerId() {return containerId;}
+    public void setContainerId(Long containerId) {this.containerId = containerId;}
     public Long getVehicleId() {
         return vehicleId;
     }
