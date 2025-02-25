@@ -45,8 +45,8 @@ public class ContainerEntity {
     @Column(nullable = false)
     private String dateEndTransport;
 
-    private Integer numPackages; // Quantidade atual de pacotes
-    private Integer maxPackages; // Máximo permitido
+    private Integer numPackages = 0; // Quantidade atual de pacotes
+    private Integer maxPackages = 5; // Máximo permitido
 
     
     public Integer getNumPackages() {

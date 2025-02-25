@@ -26,7 +26,7 @@ public class DeleteContainerService {
             resp.setMessage("O container foi excluído");
             resp.setStatusCode(200);
             return resp;
-        }else{
+        } else {
             resp.setMessage("Container não encontrado");
             resp.setStatusCode(404);
             return resp;
