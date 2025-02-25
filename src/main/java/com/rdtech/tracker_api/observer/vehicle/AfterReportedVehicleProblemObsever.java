@@ -42,8 +42,7 @@ public class AfterReportedVehicleProblemObsever {
             this.status.save(newStatus);
         }
 
-        packages.forEach(pkg -> { 
-            System.out.println("pacotes: encontados: "+pkg.getTrackerCode());
+        packages.forEach(pkg -> {
             pkg.setStatus("Pacote Avariado ou Roubado");
             this.packages.save(pkg);
         });

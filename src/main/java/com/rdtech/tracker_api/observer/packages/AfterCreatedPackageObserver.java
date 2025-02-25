@@ -120,7 +120,7 @@ public class AfterCreatedPackageObserver {
         this.containerEntity = new ContainerEntity();
         this.containerEntity.setVehicleId(-1L); // o veículo ainda não existe
         this.containerEntity.setCityDestine(this.packageEntity.getCityDestine());
-        this.containerEntity.setStateDestine(this.packageEntity.getCityDestine());
+        this.containerEntity.setStateDestine(this.packageEntity.getStateDestine());
         this.containerEntity.setStatusID(-1L);
         this.containerEntity.setDateStartTransport("00-00-00 00:00 PM");
         this.containerEntity.setDateEndTransport("00-00-00 00:00 PM");
