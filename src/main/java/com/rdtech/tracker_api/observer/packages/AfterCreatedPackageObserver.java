@@ -105,8 +105,11 @@ public class AfterCreatedPackageObserver {
        this.containerEntity = containersFind.get(0);
         
         if (this.containerEntity != null) {   
+            CreateTrackerCode code = CreateTrackerCode.getInstance();
+            String trackingCode = code.gen("PKG");
+
             this.packageEntity.setContainerId(this.containerEntity.getContainerId());
-            this.packageEntity.setTrackerCode(new CreateTrackerCode.Builder().build().generate());
+            this.packageEntity.setTrackerCode(trackingCode);
 
             // atualiza o número de pacotes no container
             Integer numPackages = this.containerEntity.getNumPackages();
@@ -129,9 +132,12 @@ public class AfterCreatedPackageObserver {
 
         // precisa salvar para obter ID, e atribuir ao pacote
         ContainerEntity newContainer = this.containerRepository.save(this.containerEntity);
-         
+        
+        CreateTrackerCode code = CreateTrackerCode.getInstance();
+        String trackingCode = code.gen("PKG");
+        
         this.packageEntity.setContainerId(newContainer.getContainerId());
-        this.packageEntity.setTrackerCode(new CreateTrackerCode.Builder().build().generate());
+        this.packageEntity.setTrackerCode(trackingCode);
     }
     
     private void createHistoric() {
