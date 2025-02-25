@@ -5,6 +5,8 @@ import com.rdtech.tracker_api.entity.VehicleEntity;
 import com.rdtech.tracker_api.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -26,7 +28,7 @@ public class GetVehicleService {
         this.vehicleRepository = resp;
     }
 
-    public VehicleGetResponseDto run(Long vehicleId) {
+    public Object run(Long vehicleId) {
         Optional<VehicleEntity> vehicle = vehicleRepository.findById(vehicleId);
         VehicleGetResponseDto resp = new VehicleGetResponseDto();
 
@@ -43,9 +45,8 @@ public class GetVehicleService {
 
             return resp;
         }else{
-            resp.setVehicleId(-1L);
-            return resp;
-
+            Map<String,Object> response = Map.of("message", "O veículo não foi encontado","StatusCode", 404);
+            return response;
         }
     }
 

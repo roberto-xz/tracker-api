@@ -18,5 +18,5 @@ import com.rdtech.tracker_api.entity.ContainerEntity;
 public interface ContainerRepository extends JpaRepository<ContainerEntity, Long> {
     @Query("SELECT c FROM ContainerEntity c WHERE c.stateDestine = :stateDestine AND c.numPackages < c.maxPackages")
     List<ContainerEntity> getByStateDestine(@Param("stateDestine") String stateDestine);
-
+    ContainerEntity getByVehicleId(Long vehicleId);
 }

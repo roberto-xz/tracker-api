@@ -58,6 +58,7 @@ public class GetPackageService {
             res.setStreetAddress(packageFd.getStreetAdress());
             res.setHomeNumber(packageFd.getHomeNumber());
             res.setDescription(packageFd.getDescription());
+            res.setStatus(packageFd.getStatus());
             
             // criando a lista de dtos 
             for (HistoricOfPackageEntity row: historics) {

@@ -1,6 +1,5 @@
 package com.rdtech.tracker_api.service.vehicle;
 
-import com.rdtech.tracker_api.dto.vehicle.VehicleGetResponseDto;
 import com.rdtech.tracker_api.dto.vehicle.VehicleUpdateRequestDto;
 import com.rdtech.tracker_api.dto.vehicle.VehicleUpdatedResponseDto;
 import com.rdtech.tracker_api.entity.Driver;
@@ -45,7 +44,7 @@ public class UpdateVehicleService {
         //Obtem Ve[iculo existente
         VehicleEntity vehicle = vehicleExist.get();
 
-        //Verificando se o motorista existe
+        /* Verificando se o motorista existe
         if(req.getDriverID() != null) {
             Optional<Driver> driverExist = driverRepository.findById(req.getDriverID());
             if (!driverExist.isPresent()) {
@@ -54,10 +53,10 @@ public class UpdateVehicleService {
                 return resp;
             }
 
-            //Atribui o motorista ao veiculo
+            Atribui o motorista ao veiculo
             vehicle.setDriverId(req.getDriverID());
-        }
-
+        }*/
+        
         //Atualiza os Campos
         if(req.getVehicleAsProblem() != null) {
             vehicle.setVehicleAsProblem(req.getVehicleAsProblem());

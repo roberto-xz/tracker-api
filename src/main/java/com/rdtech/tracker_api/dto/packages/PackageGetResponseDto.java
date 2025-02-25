@@ -24,6 +24,8 @@ public class PackageGetResponseDto {
     private String streetAddress;
     private String homeNumber;
     private String description;
+    private String Status;
+
     private List<HistoricOfPackageDto> historic;
 
     public PackageGetResponseDto() {}
@@ -83,4 +85,6 @@ public class PackageGetResponseDto {
     public void setDescription(String description) {this.description = description;}
     public List<HistoricOfPackageDto> getHistoric() {return historic;}
     public void setHistoric(List<HistoricOfPackageDto> historic) {this.historic = historic;}
+    public String getStatus() {return Status;}
+    public void setStatus(String status) {Status = status;}
 }

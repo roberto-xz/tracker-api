@@ -24,15 +24,17 @@ public class PackageEntity {
     
 
     private Long containerId = -1L; // Indica que não pertence a um container
-    private Long statusId;          // Status do pacote, em preparação, entransito, entregue, aguardando transport..
-   
+    
     @Column(unique = true)
     private String trackerCode;     // Codigo de Rastreio
     private String description;
     private String dateStartTransport;   // Data do início do transport
     private String dateEndTransport;     // Data da entrega
     private String expectedDeliveryDate; // Data prevista para entrega
+    private String status;
+    private Long statusId;
 
+    
     @Column(nullable = false)
     private String userUUID;
     
@@ -74,14 +76,6 @@ public class PackageEntity {
 
     public void setContainerId(Long containerId) {
         this.containerId = containerId;
-    }
-
-    public Long getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(Long statusId) {
-        this.statusId = statusId;
     }
 
     public String getTrackerCode() {
@@ -186,6 +180,22 @@ public class PackageEntity {
 
     public void setExpectedDeliveryDate(String expectedDeliveryDate) {
         this.expectedDeliveryDate = expectedDeliveryDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Long getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(Long statusId) {
+        this.statusId = statusId;
     }
     
 }
