@@ -8,50 +8,20 @@ package com.rdtech.tracker_api.dto.container;
  *****
 **/
 public class ContainerUpdateRequestDto {
-    private Long containerId;
-    private Long vehicleId;
-    private String dateStartTransport;
-    private String dateEndTransport;
+    private Long containerID;    
     private Integer maxPackages;
-    private Integer numPackages;
-    private Long statusId;
+    private String  stateDestine;
+    private String  cityDestine;
+    private String  dateEndTransport;
 
-    public Long getContainerId() {return containerId;}
-    public void setContainerId(Long containerId) {this.containerId = containerId;}
-    public Long getVehicleId() {
-        return vehicleId;
-    }
-    public void setVehicleId(Long vehicleId) {
-        this.vehicleId = vehicleId;
-    }
-    public String getDateStartTransport() {
-        return dateStartTransport;
-    }
-    public void setDateStartTransport(String dateStartTransport) {
-        this.dateStartTransport = dateStartTransport;
-    }
-    public String getDateEndTransport() {
-        return dateEndTransport;
-    }
-    public void setDateEndTransport(String dateEndTransport) {
-        this.dateEndTransport = dateEndTransport;
-    }
-    public Integer getMaxPackages() {
-        return maxPackages;
-    }
-    public void setMaxPackages(Integer maxPackages) {
-        this.maxPackages = maxPackages;
-    }
-    public Integer getNumPackages() {
-        return numPackages;
-    }
-    public void setNumPackages(Integer numPackages) {
-        this.numPackages = numPackages;
-    }
-    public Long getStatusId() {
-        return statusId;
-    }
-    public void setStatusId(Long statusId) {
-        this.statusId = statusId;
-    } 
+    public Integer getMaxPackages() {return maxPackages;}
+    public void setMaxPackages(Integer maxPackages) {this.maxPackages = maxPackages;}
+    public String getStateDestine() {return stateDestine;}
+    public void setStateDestine(String stateDestine) {this.stateDestine = stateDestine;}
+    public String getCityDestine() {return cityDestine;}
+    public void setCityDestine(String cityDestine) {this.cityDestine = cityDestine;}
+    public String getDateEndTransport() {return dateEndTransport;}
+    public void setDateEndTransport(String dateEndTransport) {this.dateEndTransport = dateEndTransport;}
+    public Long getContainerID() {return containerID;}
+    public void setContainerID(Long containerID) {this.containerID = containerID;}
 }

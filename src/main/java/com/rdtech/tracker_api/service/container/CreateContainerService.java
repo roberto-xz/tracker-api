@@ -17,27 +17,23 @@ public class CreateContainerService {
         this.containerRepository = rep;
     }
 
-    public ContainerCreatedResponseDto run (ContainerCreateRequestDto req){
+    public ContainerCreatedResponseDto run (ContainerCreateRequestDto req) {
+
         ContainerCreatedResponseDto resp = new ContainerCreatedResponseDto();
         ContainerEntity container = new ContainerEntity();
 
-        container.setVehicleId(req.getVehicleId());
+        container.setVehicleId(-1L);
+        container.setStatusID(-1L);
         container.setStateDestine(req.getStateDestine());
         container.setCityDestine(req.getCityDestine());
         container.setDateStartTransport(req.getDateStartTransport());
         container.setDateEndTransport(req.getDateEndTransport());
         container.setMaxPackages(req.getMaxPackages());
+        container.setNumPackages(0);
 
-        if(containerRepository.existsById(req.getContainerId())){
-            resp.setContainerID(-1L);
-            resp.setStatusID(409L);
-            return resp;
-        }else{
-            ContainerEntity createdContainer = containerRepository.save(container);
-            resp.setContainerID(createdContainer.getContainerId());
-            resp.setStatusID(200L);
-            return resp;
-        }
-
+        ContainerEntity createdContainer = containerRepository.save(container);
+        resp.setContainerID(createdContainer.getContainerId());
+        resp.setStatusID(200L);
+        return resp;
     }
 }

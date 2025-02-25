@@ -21,22 +21,20 @@ public class UpdateContainerService {
     public ContainerUpdatedResponseDto run(ContainerUpdateRequestDto req){
         ContainerUpdatedResponseDto resp = new ContainerUpdatedResponseDto();
 
-        Optional<ContainerEntity> containerExist = containerRepository.findById(req.getContainerId());
+        Optional<ContainerEntity> containerExist = containerRepository.findById(req.getContainerID());
 
         if(containerExist.isPresent()){
             ContainerEntity container = containerExist.get();
-            container.setVehicleId(req.getVehicleId());
-            container.setDateStartTransport(req.getDateStartTransport());
-            container.setDateEndTransport(req.getDateEndTransport());
             container.setMaxPackages(req.getMaxPackages());
-            container.setNumPackages(req.getNumPackages());
-            container.setStatusID(req.getStatusId());
-
+            container.setStateDestine(req.getStateDestine());
+            container.setCityDestine(req.getCityDestine());
+            container.setDateEndTransport(req.getDateEndTransport());
+            
             containerRepository.save(container);
             resp.setMessage("Os dados do container foram atualizados");
             resp.setStatusCode(200);
             return resp;
-        }else{
+        }else {
             resp.setMessage("Container não encontrado");
             resp.setStatusCode(404);
             return resp;

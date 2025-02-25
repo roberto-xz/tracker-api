@@ -1,7 +1,5 @@
 
 package com.rdtech.tracker_api.dto.container;
-import java.util.List;
-import com.rdtech.tracker_api.dto.historics.HistoricOfContainerDto;
 
 /**
  *****
@@ -18,8 +16,7 @@ public class ContainerGetResponseDto {
     private String dateEndTransport;
     private Integer maxPackages;
     private Integer numPackages;
-    private List<HistoricOfContainerDto> historic;
-
+    private String status = "";
 
     public ContainerGetResponseDto() {
     }
@@ -32,8 +29,7 @@ public class ContainerGetResponseDto {
             String dateStartTransport, 
             String dateEndTransport, 
             Integer maxPackages, 
-            Integer numPackages,
-            List<HistoricOfContainerDto> historic
+            Integer numPackages
     ){
         this.containerId = containerId;
         this.vehilceId = vehilceId;
@@ -43,8 +39,8 @@ public class ContainerGetResponseDto {
         this.dateEndTransport = dateEndTransport;
         this.maxPackages = maxPackages;
         this.numPackages = numPackages;
-        this.historic = historic;
     }
+
 
     public Long getContainerId() {
         return containerId;
@@ -94,10 +90,12 @@ public class ContainerGetResponseDto {
     public void setNumPackages(Integer numPackages) {
         this.numPackages = numPackages;
     }
-    public List<HistoricOfContainerDto> getHistoric() {
-        return historic;
+
+    public String getStatus() {
+        return status;
     }
-    public void setHistoric(List<HistoricOfContainerDto> historic) {
-        this.historic = historic;
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
