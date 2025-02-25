@@ -34,7 +34,7 @@ public class CreateVehicleService {
             vehicle.setVehiclePlate(req.getVehiclePlate());
             vehicle.setVehicleCapacity(req.getVehicleCapacity());
             vehicle.setDriverId(-1L);
-
+            vehicle.setIsAvailable(true);
             VehicleEntity vehicleCreated = vehicleRepository.save(vehicle);
             resp.setVehicleId(vehicleCreated.getVehicleId());
             resp.setStatusCode(200);

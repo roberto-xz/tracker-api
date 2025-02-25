@@ -1,6 +1,5 @@
 package com.rdtech.tracker_api.controller.vehicle;
 
-import com.rdtech.tracker_api.dto.vehicle.VehicleGetResponseDto;
 import com.rdtech.tracker_api.service.vehicle.GetVehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,9 +21,7 @@ public class GetVehicleController {
     GetVehicleService getVehicle;
 
     @GetMapping("/get/{vehicleId}")
-    public VehicleGetResponseDto run(@PathVariable Long vehicleId) {
-        VehicleGetResponseDto resp = getVehicle.run(vehicleId);
-        if(resp.getVehicleId() == -1){}
-        return resp;
+    public Object run(@PathVariable Long vehicleId) {
+        return getVehicle.run(vehicleId);
     }
 }

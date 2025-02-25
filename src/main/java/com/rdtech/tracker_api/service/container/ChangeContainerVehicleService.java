@@ -5,11 +5,13 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import com.rdtech.tracker_api.entity.ContainerEntity;
 import com.rdtech.tracker_api.entity.Status;
 import com.rdtech.tracker_api.entity.VehicleEntity;
+import com.rdtech.tracker_api.event.container.ContainerChangedVehicleEvent;
 import com.rdtech.tracker_api.repository.ContainerRepository;
 import com.rdtech.tracker_api.repository.StatusRepository;
 import com.rdtech.tracker_api.repository.VehicleRepository;
@@ -19,16 +21,19 @@ public class ChangeContainerVehicleService {
     private final ContainerRepository container;
     private final VehicleRepository   vehicle;
     private final StatusRepository    status;
+    private final ApplicationEventPublisher event;
     
     @Autowired
     public ChangeContainerVehicleService(
         ContainerRepository container, 
         VehicleRepository vehicle,
-        StatusRepository status
+        StatusRepository status,
+        ApplicationEventPublisher e
     ) {
         this.container = container;
         this.vehicle = vehicle;
         this.status = status;
+        this.event = e;
     }
 
     public Object run(Long containerId, Long vehicleId) {
@@ -45,12 +50,11 @@ public class ChangeContainerVehicleService {
             return response;
         }
 
-        if (vehicle.isPresent() && vehicle.get().getIsAvailable()){
+        if (vehicle.isPresent() && !vehicle.get().getIsAvailable()){
             Map<String,Object> response = Map.of("message", "Esse veículo já está sendo usado","StatusCode", 404);
             return response;
         }
 
-        container.get().setContainerId(vehicleId);
         if (this.status.existsByStatusText("Esperando Transport")){
             Long status = this.status.getByStatusText("Esperando Transport").getStatusID();
             container.get().setStatusID(status);
@@ -59,8 +63,11 @@ public class ChangeContainerVehicleService {
             Long newStatus = this.status.save(status).getStatusID();
             container.get().setStatusID(newStatus);
         }
-
+        
+        container.get().setVehicleId(vehicleId);
         this.container.save(container.get());
+        
+        this.event.publishEvent(new ContainerChangedVehicleEvent(this, containerId, vehicleId));
         Map<String,Object> response = Map.of("message", "O veículo do container foi atualizado com sucesso", "StatusCode",200);
         return response;
     }

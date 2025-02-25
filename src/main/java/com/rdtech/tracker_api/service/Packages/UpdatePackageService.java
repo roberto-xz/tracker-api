@@ -31,15 +31,12 @@ public class UpdatePackageService {
         PackageUpdatedResponseDto res = new PackageUpdatedResponseDto();
 
         if (packageFind.isPresent()) {
-            // verificar se o container e status existe
             PackageEntity packagAt = packageFind.get();
             packagAt.setStateDestine(req.getStateDestine());
             packagAt.setCityDestine(req.getCityDestine());
             packagAt.setStreetAdress(req.getStreetAddress());
             packagAt.setNeighborhood(req.getNeighborhood());
             packagAt.setHomeNumber(req.getHomeNumber());
-            packagAt.setContainerId(req.getContainerId());
-            packagAt.setStatusId(req.getStatusId());
 
             packageRepository.save(packagAt);
             res.setMessagem("o pacote foi atualizado");

@@ -1,6 +1,8 @@
 
 package com.rdtech.tracker_api.observer.packages;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
@@ -94,11 +96,20 @@ public class AfterCreatedPackageObserver {
     
     
     private boolean setExistentContainer() {
-        this.containerEntity = this.containerRepository.getByStateDestine(this.packageEntity.getStateDestine());
+        //this.containerEntity = this.containerRepository.getByStateDestine(this.packageEntity.getStateDestine());
+        String destine = this.packageEntity.getStateDestine();
+        List<ContainerEntity> containersFind = this.containerRepository.getByStateDestine(destine);
+        
+        if (containersFind.isEmpty()) {return false;}
+
+       this.containerEntity = containersFind.get(0);
         
         if (this.containerEntity != null) {   
+            CreateTrackerCode code = CreateTrackerCode.getInstance();
+            String trackingCode = code.gen("PKG");
+
             this.packageEntity.setContainerId(this.containerEntity.getContainerId());
-            this.packageEntity.setTrackerCode(new CreateTrackerCode.Builder().build().generate());
+            this.packageEntity.setTrackerCode(trackingCode);
 
             // atualiza o número de pacotes no container
             Integer numPackages = this.containerEntity.getNumPackages();
@@ -112,7 +123,7 @@ public class AfterCreatedPackageObserver {
         this.containerEntity = new ContainerEntity();
         this.containerEntity.setVehicleId(-1L); // o veículo ainda não existe
         this.containerEntity.setCityDestine(this.packageEntity.getCityDestine());
-        this.containerEntity.setStateDestine(this.packageEntity.getCityDestine());
+        this.containerEntity.setStateDestine(this.packageEntity.getStateDestine());
         this.containerEntity.setStatusID(-1L);
         this.containerEntity.setDateStartTransport("00-00-00 00:00 PM");
         this.containerEntity.setDateEndTransport("00-00-00 00:00 PM");
@@ -121,9 +132,12 @@ public class AfterCreatedPackageObserver {
 
         // precisa salvar para obter ID, e atribuir ao pacote
         ContainerEntity newContainer = this.containerRepository.save(this.containerEntity);
-         
+        
+        CreateTrackerCode code = CreateTrackerCode.getInstance();
+        String trackingCode = code.gen("PKG");
+        
         this.packageEntity.setContainerId(newContainer.getContainerId());
-        this.packageEntity.setTrackerCode(new CreateTrackerCode.Builder().build().generate());
+        this.packageEntity.setTrackerCode(trackingCode);
     }
     
     private void createHistoric() {

@@ -1,6 +1,10 @@
 
 package com.rdtech.tracker_api.dto.container;
 
+import java.util.List;
+
+import com.rdtech.tracker_api.dto.historics.HistoricOfContainerDto;
+
 /**
  *****
  * @date 19/02/2025
@@ -17,6 +21,7 @@ public class ContainerGetResponseDto {
     private Integer maxPackages;
     private Integer numPackages;
     private String status = "";
+    private List<HistoricOfContainerDto> historic;
 
     public ContainerGetResponseDto() {
     }
@@ -97,5 +102,13 @@ public class ContainerGetResponseDto {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<HistoricOfContainerDto> getHistoric() {
+        return historic;
+    }
+
+    public void setHistoric(List<HistoricOfContainerDto> historic) {
+        this.historic = historic;
     }
 }

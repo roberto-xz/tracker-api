@@ -6,7 +6,7 @@ package com.rdtech.tracker_api.dto.driver;
  * @author roberto-xz
  *****
  */
-public class driverCheckinRequestDto {
+public class DriverCheckinRequestDto {
     private Long vehicleId;
     private Long driverId;
     private String stateCheckin;

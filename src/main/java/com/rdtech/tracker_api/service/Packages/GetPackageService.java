@@ -4,6 +4,8 @@ package com.rdtech.tracker_api.service.Packages;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,15 +35,15 @@ public class GetPackageService {
         this.historicPackageRepository = h;
     }
 
-    public PackageGetResponseDto run(PackageGetRequestDto req) {
+    public Object run(Long packageId) {
         PackageGetResponseDto res = new PackageGetResponseDto();
         List<HistoricOfPackageDto> historicDto = new ArrayList<>();
 
-        Optional<PackageEntity> packageById = packageRepository.findById(req.getPackageId());
+        Optional<PackageEntity> packageById = packageRepository.findById(packageId);
         
         if (packageById.isPresent()) {
             PackageEntity packageFd = packageById.get();
-            List<HistoricOfPackageEntity> historics = historicPackageRepository.findByPackageId(req.getPackageId());
+            List<HistoricOfPackageEntity> historics = historicPackageRepository.findByPackageId(packageId);
             
             // usar mapper depois
             res.setPackageId(packageFd.getPackageId());
@@ -56,6 +58,7 @@ public class GetPackageService {
             res.setStreetAddress(packageFd.getStreetAdress());
             res.setHomeNumber(packageFd.getHomeNumber());
             res.setDescription(packageFd.getDescription());
+            res.setStatus(packageFd.getStatus());
             
             // criando a lista de dtos 
             for (HistoricOfPackageEntity row: historics) {
@@ -71,8 +74,8 @@ public class GetPackageService {
             res.setHistoric(historicDto);
             return res;
         }
-        
-        else if(packageRepository.existsByTrackerCode(req.getTrackerCode())){}
-        return null;
+
+        Map<String,Object> response = Map.of("message", "Pacote não encontrado","StatusCode", 404);
+        return response;
     }
 }

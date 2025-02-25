@@ -26,8 +26,7 @@ public class VehicleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long vehicleId;
-
-    @Column(nullable = false)
+    
     private Long driverId;
 
     @Column(nullable = false)
